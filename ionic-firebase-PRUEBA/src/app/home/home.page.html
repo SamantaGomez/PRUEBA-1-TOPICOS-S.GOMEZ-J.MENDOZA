@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center; color: white">
+      <ion-icon name="newspaper-outline" style="color: white; zoom:1.2"></ion-icon>
+      PRUEBA #1 
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title style="text-align: center; color: white">
+      SAMY <ion-icon name="people-circle-outline" style="color: white; zoom:1.2"></ion-icon> JOEL
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      REGISTROS
+    </ion-list-header>
+
+    <ion-item *ngFor="let booking of Bookings" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person-circle-outline" style="zoom:2.0"></ion-icon> {{booking.name}}
+        </h5>
+        <p>
+          <ion-icon name="call" style="zoom:2.0"></ion-icon> {{booking.mobile}}
+        </p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/edit-appointment/', booking.$key]">
+          <ion-icon name="create" style="zoom:2.0" ></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteBooking(booking.$key)">
+          <ion-icon name="trash" style="zoom:2.0" ></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
